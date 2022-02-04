@@ -9,6 +9,7 @@ Responsibility: (start the game, do the game loop, end it if it's over, call oth
     --+ term_service (instance of Terminal Service)
     Methods:
     --+ start_game
+    --+ get_input
     --+ do_game_loop
     --+ end_game
 ```
