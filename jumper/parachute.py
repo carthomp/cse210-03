@@ -14,7 +14,7 @@ class Parachute():
         """
         return self.draw(tries)
 
-    def draw(tries):
+    def draw(self, tries):
         stages = [  # initial state 
                     """
                             ___                  
