@@ -1,6 +1,7 @@
 class Terminal_Service():
     """
     """
+
     def __init__(self):
         """
         """
@@ -11,7 +12,7 @@ class Terminal_Service():
         Displays a welcome message here!
         """
         print("Welcome to the Jumper game!")
-    
+
     def take_guess(self):
         """
         Prompts the user to enter a letter, and avoids common errors such as repeated guesses
@@ -34,12 +35,12 @@ class Terminal_Service():
 
     def compare_guess(self, word, guess):
         if guess not in word:
-            print ("Wrong guess")
+            print("Wrong guess")
             return False
         elif guess in word:
-            print ('Keep going')
+            print('Keep going')
             return True
-    
+
     def display_parachute(self, parachute):
         print(parachute)
 
@@ -48,7 +49,7 @@ class Terminal_Service():
         Displays a "Game Over" message.
         """
         if guesses == 0:
-          print('Game Over')
-          return False
+            print('Game Over')
+            return False
         elif guesses > 0:
-          return True
+            return True
