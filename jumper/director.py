@@ -22,7 +22,7 @@ class Director():
         self.tries = self.current_parachute.get_tries()
         parachute = self.get_parachute()
         self.term_service.display_parachute(parachute)
-        self.get_input()
+        #self.get_input()
         self.do_game_loop()
         self.end_game()
     
@@ -30,23 +30,26 @@ class Director():
         parachute = self.current_parachute.draw(self.tries)
         return parachute
 
-    def get_input(self):
-
-    
     def do_game_loop(self):
         """
         """
         while (self.keep_playing):
             guess = self.term_service.take_guess()
-            word = self.current_word.set_word()
+            word = self.current_word.set_word
             guess_status = self.term_service.compare_guess(word, guess)
+            number_letters = len(word)
             if guess_status:
-                pass
+                tries = self.current_parachute.get_tries()
+                parachute = self.get_parachute(tries)
+                self.term_service.display_parachute(parachute)   
             else:
                 self.current_parachute.set_tries()
                 tries = self.current_parachute.get_tries()
                 parachute = self.get_parachute(tries)
                 self.term_service.display_parachute(parachute)
+            for i in number_letters:
+                 print ("_", end='')
+            print ()
             if self.end_game():
                 break
     
