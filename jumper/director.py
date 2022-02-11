@@ -48,7 +48,11 @@ class Director():
                 parachute = self.get_parachute(tries)
                 self.term_service.display_parachute(parachute)
             for i in number_letters:
-                 print ("_", end='')
+                if guess.lower() == i.lower():
+                    print (guess.upper(), end='')
+                else:
+                    print ("_", end='')
+
             print ()
             if self.end_game():
                 break
