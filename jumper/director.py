@@ -35,7 +35,7 @@ class Director():
         """
         while (self.keep_playing):
             guess = self.term_service.take_guess()
-            word = self.current_word.set_word
+            word = self.current_word
             guess_status = self.term_service.compare_guess(word, guess)
             number_letters = len(word)
             if guess_status:
