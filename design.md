@@ -9,6 +9,7 @@ Responsibility: (start the game, do the game loop, end it if it's over, call oth
     --+ term_service (instance of Terminal Service)
     Methods:
     --+ start_game
+    --+ show_incomplete_word
     --+ get_input
     --+ do_game_loop
     --+ end_game
@@ -19,6 +20,7 @@ Responsibility: (input and output from console, including guesses) [CHILD]
 ```
     Methods:
     --+ welcome
+    
     --+ take_guess
     --+ display_parachute
     --+ display_game_over

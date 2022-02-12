@@ -65,7 +65,9 @@ class Director():
             print(self.incomplete_word)
             tries = self.current_parachute.get_tries()
             parachute = self.get_parachute(tries)
-            self.term_service.display_parachute(parachute)    
+            self.term_service.display_parachute(parachute)  
+            if int(tries) == 4 or self.incomplete_word == self.word:
+                self.keep_playing = False  
  
             if self.end_game():
                 break
