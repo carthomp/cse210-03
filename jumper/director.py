@@ -18,7 +18,7 @@ class Director():
         self.word = str(self.current_word.set_word())
         self.word = self.word.replace("['","")
         self.word = self.word.replace("']","")
-        self.number_word = len(list(self.word))
+        self.number_word = len(self.word)
         self.incomplete_word = ""
     
     def start_game(self):
@@ -34,9 +34,10 @@ class Director():
         self.end_game()
 
     def show_incomplete_word(self):
+        incomplete_word = ""
         for _ in range(self.number_word):
-            self.incomplete_word = self.incomplete_word + "_ "
-        print(self.incomplete_word)
+            incomplete_word = incomplete_word + "_ "
+        print(incomplete_word)
         print(self.word)
     
     def get_parachute (self,tries):
@@ -50,11 +51,19 @@ class Director():
             guess = self.term_service.take_guess()
             
             guess_status = self.term_service.compare_guess(self.word, guess)
-            
+            incomplete_word = ""
             if guess_status:
-                #self.incomplete_word = self.incomplete_word + "_"
-                pass
+                for i in range(self.number_word):
+                    if guess == list(self.word)[i]:
+                        incomplete_word = incomplete_word + guess.upper() + " "
+                        
+                    else:
+                        incomplete_word = incomplete_word + "_ "
+                print(self.incomplete_word)
+                self.incomplete_word = incomplete_word
+                
             else:
+                print(self.incomplete_word)
                 self.current_parachute.set_tries()
             tries = self.current_parachute.get_tries()
             parachute = self.get_parachute(tries)
