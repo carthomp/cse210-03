@@ -6,13 +6,21 @@ class Terminal_Service():
         """
         """
         self.guessed_letters = []
-        self.incomplete_word =""
+        self.incomplete_word = []
 
     def welcome(self):
         """
         Displays a welcome message here!
         """
         print("Welcome to the Jumper game!")
+    
+    def display_line(self):
+        print("-----------------------------------------------------\n")
+    
+    def fill_incomplete_word(self, word):
+        for i in range(len(word)):
+            self.incomplete_word.append('_')
+        print(f"This game, your word has {len(self.incomplete_word)} letters! Good luck!")
 
     def take_guess(self):
         """
@@ -35,26 +43,33 @@ class Terminal_Service():
         return guess
 
     def compare_guess(self, word, guess):
-        self.incomplete_word = ""
-        if guess not in word:
-            for i in range(len(word)):
-                if guess == list(word)[i]:
-                    self.incomplete_word = self.incomplete_word + guess + " "
-                else:
-                    self.incomplete_word = self.incomplete_word + "_ "
-                print("Wrong guess")
-            return False
-        elif guess in word:
-            for i in range(len(word)):
-                if guess == list(word)[i]:
-                    self.incomplete_word = self.incomplete_word + guess + " "
-                else:
-                    self.incomplete_word = self.incomplete_word + "_ "
-            print('Keep going')
+        correct = False
+        index = 0
+        for character in word:
+            if character == guess:
+                correct = True
+                self.incomplete_word[index] = guess
+            index += 1
+        if correct:
+            print("Good guess!")
             return True
+        else:
+            print("Wrong guess!")
+            return False
 
     def display_parachute(self, parachute):
         print(parachute)
+    
+    def display_incomplete_word(self):
+        for i in range(len(self.incomplete_word)):
+            print(self.incomplete_word[i], end=" ")
+        print()
+    
+    def check_word_complete(self):
+        for i in range(len(self.incomplete_word)):
+            if self.incomplete_word[i] == "_":
+                return False
+        return True
 
     def display_game_over(self, guesses):
         """

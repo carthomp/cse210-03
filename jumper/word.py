@@ -20,6 +20,7 @@ class Word:
 
             random_word_number = random.randint(0,len(self._word_list))
             self._word = self._word_list[random_word_number]
+            self._word = self._word[0]
         
 
     
