@@ -111,3 +111,9 @@ class Director():
         else:
             print("Game over!")
             print(f"The word was: {self.current_word.set_word()}")
+
+    def do_play_again(self):
+        self.play_again = input("Would you like to play again? (y/n) ")
+        if self.play_again.lower() == 'y':
+            return True
+        return False
