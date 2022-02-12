@@ -38,14 +38,9 @@ class Director():
             self.current_word.pick_word()
             word = self.current_word.set_word()
             guess_status = self.term_service.compare_guess(word, guess)
-            
+            number_word = len(word)
             if guess_status:
-                for i in len(list(word)):
-                    if guess == list(word)[i]:
-                        print(list(guess, " ", end="")) 
-                    else:
-                        print("_", end="")
-                print()
+                pass
             else:
                 self.current_parachute.set_tries()
             tries = self.current_parachute.get_tries()

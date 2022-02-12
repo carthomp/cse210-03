@@ -4,8 +4,7 @@ import random
        
 class Word:
 
-    def _init_(self):
-        
+    def _init_(self):     
         self._word_list = []
         self._word = ""
                
@@ -21,6 +20,7 @@ class Word:
 
             random_word_number = random.randint(0,len(self._word_list))
             self._word = self._word_list[random_word_number]
+        
 
     
             

@@ -6,6 +6,7 @@ class Terminal_Service():
         """
         """
         self.guessed_letters = []
+        self.incomplete_word =""
 
     def welcome(self):
         """
@@ -34,10 +35,21 @@ class Terminal_Service():
         return guess
 
     def compare_guess(self, word, guess):
+        self.incomplete_word = ""
         if guess not in word:
-            print("Wrong guess")
+            for i in range(len(word)):
+                if guess == list(word)[i]:
+                    self.incomplete_word = self.incomplete_word + guess + " "
+                else:
+                    self.incomplete_word = self.incomplete_word + "_ "
+                print("Wrong guess")
             return False
         elif guess in word:
+            for i in range(len(word)):
+                if guess == list(word)[i]:
+                    self.incomplete_word = self.incomplete_word + guess + " "
+                else:
+                    self.incomplete_word = self.incomplete_word + "_ "
             print('Keep going')
             return True
 
