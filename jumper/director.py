@@ -39,17 +39,18 @@ class Director():
             word = self.current_word.set_word()
             guess_status = self.term_service.compare_guess(word, guess)
             
-                              
-            print ()
             if guess_status:
-                tries = self.current_parachute.get_tries()
-                parachute = self.get_parachute(tries)
-                self.term_service.display_parachute(parachute)   
+                for i in len(list(word)):
+                    if guess == list(word)[i]:
+                        print(list(guess, " ", end="")) 
+                    else:
+                        print("_", end="")
+                print()
             else:
                 self.current_parachute.set_tries()
-                tries = self.current_parachute.get_tries()
-                parachute = self.get_parachute(tries)
-                self.term_service.display_parachute(parachute)
+            tries = self.current_parachute.get_tries()
+            parachute = self.get_parachute(tries)
+            self.term_service.display_parachute(parachute)    
  
             if self.end_game():
                 break
