@@ -1,6 +1,6 @@
-import csv
+# import csv
 import random
-from turtle import rt
+# from turtle import rt
        
 class Word:
 
@@ -8,12 +8,13 @@ class Word:
 
         self.word_list = ["house","boy","girls","python"]
         self.random_word_number = random.randint(0,3)
-        self.word = self.word_list[self.random_word_number]
+        self.word = ""
         
     def set_word (self):
+        self.word = self.word_list[self.random_word_number]
         return self.word
 
-    def pick_word(self):
+    # def pick_word(self):
 
         # self.word=self.word_list[self.random_word_number]
 

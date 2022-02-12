@@ -26,7 +26,7 @@ class Director():
         self.do_game_loop()
         self.end_game()
     
-    def get_parachute(self):
+    def get_parachute (self):
         parachute = self.current_parachute.draw(self.tries)
         return parachute
 
@@ -35,8 +35,8 @@ class Director():
         """
         while (self.keep_playing):
             guess = self.term_service.take_guess()
-            word = self.current_word
-            guess_status = self.term_service.compare_guess(word, guess)
+            word = self.current_word.set_word()
+            guess_status = self.term_service.compare_guess(list(word), guess)
             number_letters = len(word)
             if guess_status:
                 tries = self.current_parachute.get_tries()
