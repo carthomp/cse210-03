@@ -1,36 +1,31 @@
 import csv
 import random
-from turtle import rt
        
 class Word:
 
-    def __init__(self):
-
-        self.word_list = ["house","boy","girls","python"]
-        self.random_word_number = random.randint(0,3)
-        self.word = self.word_list[self.random_word_number]
+    def _init_(self):
+        
+        self._word_list = []
+        self._word = ""
+        
+        
+        
         
     def set_word (self):
-        return self.word
+        return self._word
 
     def pick_word(self):
+        with open ("jumper\words.csv") as csv_file:
 
-        # self.word=self.word_list[self.random_word_number]
+            reader = csv.reader(csv_file)
+            self._word_list = list(reader)
+            # for row in reader:
+                
+            #     self._word_list.append(row)
 
+            random_word_number = random.randint(0,len(self._word_list))
+            self._word = self._word_list[random_word_number]
 
-        # with open ("./jumper/words.csv","rt") as csv_file:
-
-        #     reader = csv.reader(csv_file)
-        #     next(reader)
-        #     for row in reader:
-        #         self.word_list.append(row)
-
-        #     # self.random_word_number = random.randint(0,len(self.word_list))
-        #     # self.word = self.word_list[self.random_word_number]
-        #     # self.word = self.word.strip()
-        
-        # self.word=random.choice(self.word_list)
-        # self.word=self.word[0].upper()
+    
             
-
-        
+            

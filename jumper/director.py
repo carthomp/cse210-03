@@ -35,9 +35,17 @@ class Director():
         """
         while (self.keep_playing):
             guess = self.term_service.take_guess()
-            word = self.current_word
+            self.current_word.pick_word()
+            word = self.current_word.set_word()
             guess_status = self.term_service.compare_guess(word, guess)
-            number_letters = len(word)
+            
+            number_letters = len(word)         
+            for i in number_letters:
+                if guess.lower() == word[i].lower():
+                    print (guess.upper() , " ", end='')
+                else:
+                    print ("_ ", end='')                  
+            print ()
             if guess_status:
                 tries = self.current_parachute.get_tries()
                 parachute = self.get_parachute(tries)
@@ -47,13 +55,7 @@ class Director():
                 tries = self.current_parachute.get_tries()
                 parachute = self.get_parachute(tries)
                 self.term_service.display_parachute(parachute)
-            for i in number_letters:
-                if guess.lower() == i.lower():
-                    print (guess.upper(), end='')
-                else:
-                    print ("_", end='')
-
-            print ()
+ 
             if self.end_game():
                 break
     
