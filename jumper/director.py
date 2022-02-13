@@ -7,7 +7,7 @@ class Director():
     Directs the management of the game by starting it and running the loop that progresses it.
     Attributes:
         keep_playing (bool) - whether the game should continue or not
-        play_again (str) - currently unimplemented, but would store a 'y' to play again or a 'n' to not
+        play_again (str) - stores a 'y' to play again or a 'n' to not
         current_word - instance of Word
         current_parachute - instance of Parachute
         term_service - instance of Terminal Service
