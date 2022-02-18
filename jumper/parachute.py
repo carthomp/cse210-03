@@ -3,10 +3,17 @@ class Parachute():
         self._tries = 0
 
     def _get_tries(self):
+
         return self._tries
 
     def _set_tries(self):
         self._tries += 1
+
+        return self._tries
+
+    def _set_tries(self):
+        self._tries += 1
+
 
     def _set_parachute(self, tries):
         """
